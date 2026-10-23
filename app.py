@@ -8,7 +8,23 @@ COURSES_FILE = BASE_DIR / "corsi_list.xlsx"
 RULES_FILE = BASE_DIR / "requisiti_ministero.xlsx"
 
 st.set_page_config(page_title="Verifica requisiti classi di concorso", page_icon="📚", layout="wide")
+st.markdown("""
+<style>
+/* Pulsanti principali: colore verde */
+.stButton > button[kind="primary"] {
+    background-color: #218838;
+    color: white;
+    border: 1px solid #218838;
+}
 
+/* Colore quando il mouse passa sopra il pulsante */
+.stButton > button[kind="primary"]:hover {
+    background-color: #19692c;
+    border-color: #19692c;
+    color: white;
+}
+</style>
+""", unsafe_allow_html=True)
 @st.cache_data
 def load_courses():
     df = pd.read_excel(COURSES_FILE, sheet_name="Corsi")
